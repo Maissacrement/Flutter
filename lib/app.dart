@@ -74,11 +74,11 @@ class MyStatelessWidget extends StatelessWidget {
       body: SingleChildScrollView( // ScrollView overflow -> scroll
         child: Column(  // On Affiche les elements a la suite en collone par default
         children: <Widget>[ // List de widget
-          for (var i=0;i < 10;i++) const SizedBox(  // La card prend la taille de la box
+          for (var i=0;i < 10;i++) SizedBox(  // La card prend la taille de la box
               width: double.infinity, // 100%
               height: 100,
               child: Card(
-                child: Text('Hello World!')
+                child: Text('Hello $i')
               ),
           ),
         ],
