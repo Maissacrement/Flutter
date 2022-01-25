@@ -51,7 +51,7 @@ class MyStatelessWidget extends StatelessWidget {
                 builder: (BuildContext context) {
                   return Scaffold(
                     appBar: AppBar(
-                      title: const Text('Next page', style: style),
+                      title: const Text('Ma nouvelle page', style: style),
                     ),
                     body: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -71,22 +71,19 @@ class MyStatelessWidget extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
-        children: const <Widget>[
-          Center(
-            child: Text('test', style: style),
-          ),
-          Center(
-            child: Text('test', style: style),
-          ),
-          Center(
-            child: Text('test'),
-          ),
-          Center(
-            child: Text('test'),
+      body: SingleChildScrollView( // ScrollView overflow -> scroll
+        child: Column(  // On Affiche les elements a la suite en collone par default
+        children: <Widget>[ // List de widget
+          for (var i=0;i < 10;i++) const SizedBox(  // La card prend la taille de la box
+              width: double.infinity, // 100%
+              height: 100,
+              child: Card(
+                child: Text('Hello World!')
+              ),
           ),
         ],
       ),
+        ) 
     );
   }
 }
